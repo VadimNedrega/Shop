@@ -20,7 +20,7 @@ public class Bucket {
     private Long id;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "buckets_product",
+    @JoinTable(name = "buckets_products",
             joinColumns = @JoinColumn(name = "bucket_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id"))
     private List<Product> products;
