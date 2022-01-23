@@ -9,11 +9,15 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "client")
+public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String firstName;
+    private String lastName;
+    private String phone;
+    private String email;
+
 
 }

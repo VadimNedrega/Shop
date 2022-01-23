@@ -13,8 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "orders")
-public class Order {
+@Table(name = "booking")
+public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,9 +24,13 @@ public class Order {
     private LocalDateTime updated;
     private double sum;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<OrderDetails> details;
+    @ManyToOne
+    private Client client;
+
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
+
+    @OneToMany
+    private List<Product> productList;
 }
 

@@ -10,12 +10,12 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "products")
+@Table(name = "product")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String Name;
+    private String name;
     private String color;
     private String manufacturer;
     private String details;
@@ -23,10 +23,10 @@ public class Product {
     private Double price;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "products_categories",
+    @JoinTable(name = "product_category",
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
-    private List<Category> products;
+    private List<Category> productCategory;
 
 
 }
