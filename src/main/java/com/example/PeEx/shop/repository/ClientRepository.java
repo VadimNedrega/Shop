@@ -1,8 +1,7 @@
 package com.example.PeEx.shop.repository;
 
 import com.example.PeEx.shop.domain.Client;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface ClientRepository extends JpaRepository<Client, Long> {
-
-}
+@Repository
+public interface ClientRepository extends CommonRepository<Client> {}

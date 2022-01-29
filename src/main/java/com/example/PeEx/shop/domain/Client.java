@@ -10,14 +10,9 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Table(name = "client")
-public class Client {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Client extends AbstractEntity {
     private String firstName;
     private String lastName;
     private String phone;
     private String email;
-
-
 }

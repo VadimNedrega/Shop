@@ -1,5 +1,5 @@
 package com.example.PeEx.shop.domain;
 
 public enum OrderStatus {
-    NEW, APPROVED, CANCELED, CLOSED, PAYED
+    NEW, IN_PROCESS, READY_TO_DELIVERY, SEND, CANCELED, REJECTED_BY_SHOP
 }

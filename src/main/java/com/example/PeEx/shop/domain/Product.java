@@ -1,9 +1,11 @@
 package com.example.PeEx.shop.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -11,10 +13,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "product")
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Product extends AbstractEntity {
     private String name;
     private String color;
     private String manufacturer;
@@ -22,11 +21,11 @@ public class Product {
     private String size;
     private Double price;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinTable(name = "product_category",
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
-    private List<Category> productCategory;
+    private Category productCategory;
 
 
 }

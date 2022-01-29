@@ -13,16 +13,14 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "booking")
-public class Booking {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Table(name = "clientOrder")
+public class ClientOrder extends AbstractEntity {
     @CreationTimestamp
     private LocalDateTime created;
     @UpdateTimestamp
     private LocalDateTime updated;
-    private double sum;
+    private String orderDetails;
+    private String deliveryDetails;
 
     @ManyToOne
     private Client client;
