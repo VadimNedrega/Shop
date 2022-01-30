@@ -27,11 +27,11 @@ public abstract  class AbstractController <E extends AbstractEntity, S extends C
     }
 
     @Override
-    public ResponseEntity<E> get(@RequestParam Long id) {
+    public ResponseEntity<E> get(Long id) {
         return service.get(id).map(ResponseEntity::ok)
-                .orElseThrow(() -> new SampleException(
-                        String.format(ErrorType.ENTITY_NOT_FOUND.getDescription(), id)
-                ));
+                .orElseThrow(()->new SampleException(
+                        String.format(ErrorType.ENTITY_NOT_FOUND.getDescription(), id
+                )));
     }
 
     @Override
